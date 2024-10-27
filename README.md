@@ -687,7 +687,7 @@ df_copy.nunique()
                    kind='hist', 
                    bins=20, 
                    kde=True),
-        plt.title(f'Distribution of {column.replace('_', ' ').title()}', fontsize=16),
+        plt.title(f'Distribution of {column.replace("_", " ").title()}', fontsize=16),
         plt.show(),
         plt.close()
     )
@@ -733,7 +733,7 @@ plt.show()
         sns.catplot(data=df_copy, 
                    x=column, 
                    kind='count').set(xticklabels=[]),
-        plt.title(f'Count of {column.replace('_', ' ').title()}', fontsize=16),
+        plt.title(f'Count of {column.replace("_", " ").title()}', fontsize=16),
         plt.show(),
         plt.close()
     )
@@ -793,7 +793,7 @@ plt.show()
                    kind='count', 
                    aspect=1.5).set_xticklabels(rotation=90),
         plt.title(
-            f'Count of {x_col.replace('_', ' ').title()} by {hue_col.replace('_', ' ').title()}', 
+            f'Count of {x_col.replace("_", " ").title()} by {hue_col.replace("_", " ").title()}', 
             fontsize=16
         ),
         plt.show(),
@@ -915,7 +915,7 @@ unique_pairs = list(itertools.combinations(
         plt.xticks(rotation=90, ha='right'),  
         plt.yticks(rotation=0), 
         plt.title(
-            f'Counts of {x_col.replace('_', ' ').title()} by {hue_col.replace('_', ' ').title()}', 
+            f'Counts of {x_col.replace("_", " ").title()} by {hue_col.replace("_", " ").title()}', 
             fontsize=16                                           
         ),
         plt.tight_layout(),                              
@@ -1034,7 +1034,7 @@ None
             aspect=1.5
         ).set_xticklabels(rotation=90),
         plt.title(
-            f'{y_var.capitalize()} vs. {x_col.replace('_', ' ').title()} by {x_col.replace('_', ' ').title()}', 
+            f'{y_var.capitalize()} vs. {x_col.replace("_", " ").title()} by {x_col.replace("_", " ").title()}', 
             fontsize=16
         ),
         plt.show(),
@@ -1131,7 +1131,7 @@ None
             aspect=1.5
         ).set_xticklabels(rotation=90),
         plt.title(
-            f'{y_var.capitalize()} vs. {x_col.replace('_', ' ').title()} by {x_col.replace('_', ' ').title()}', 
+            f'{y_var.capitalize()} vs. {x_col.replace("_", " ").title()} by {x_col.replace("_", " ").title()}', 
             fontsize=16
         ),
         plt.show(),
@@ -1229,7 +1229,7 @@ None
             aspect=1.5
         ).set_xticklabels(rotation=90),
         plt.title(
-            f'{y_var.capitalize()} vs. {x_col.replace('_', ' ').title()} by {x_col.replace('_', ' ').title()}', 
+            f'{y_var.capitalize()} vs. {x_col.replace("_", " ").title()} by {x_col.replace("_", " ").title()}', 
             fontsize=16
         ),
         plt.show(),
@@ -1385,7 +1385,7 @@ numerical_vars = [
             aspect=1.5,
         ),
         plt.title(
-            f'{y_var.capitalize()} vs. {x_var.capitalize()} by {cat_var.replace('_', ' ').title()}', 
+            f'{y_var.capitalize()} vs. {x_var.capitalize()} by {cat_var.replace("_", " ").title()}', 
             fontsize=16
         ),
         plt.xticks(rotation=90),
@@ -1457,7 +1457,7 @@ None
         plt.xticks(rotation=90),
         plt.ylabel(y_var.replace('_', ' ').capitalize(), rotation=0, labelpad=30),
         plt.title(
-            f'Box Plot of {y_var.replace('_', ' ').capitalize()} by {var.replace('_', ' ').title()} and Influenza Status', 
+            f'Box Plot of {y_var.replace("_", " ").capitalize()} by {var.replace("_", " ").title()} and Influenza Status', 
             fontsize=16
         ),
         plt.xlabel(var.replace('_', ' ').capitalize()),
@@ -1559,7 +1559,7 @@ None
         plt.xticks(rotation=90),
         plt.ylabel(y_var.replace('_', ' ').capitalize(), rotation=0, labelpad=30),
         plt.title(
-            f'Violin Plot of {y_var.replace('_', ' ').capitalize()} by {var.replace('_', ' ').title()} and Influenza Status', 
+            f'Violin Plot of {y_var.replace("_", " ").capitalize()} by {var.replace("_", " ").title()} and Influenza Status', 
             fontsize=16
         ),
         plt.xlabel(var.replace('_', ' ').capitalize()),
@@ -1662,7 +1662,7 @@ None
         plt.xticks(rotation=90),
         plt.ylabel(y_var.replace('_', ' ').capitalize(), rotation=0, labelpad=30),
         plt.title(
-            f'Point Plot of {y_var.replace('_', ' ').capitalize()} by {var.replace('_', ' ').title()} and Influenza Status', 
+            f'Point Plot of {y_var.replace("_", " ").capitalize()} by {var.replace("_", " ").title()} and Influenza Status', 
             fontsize=16
         ),
         plt.xlabel(var.replace('_', ' ').capitalize()),
@@ -1797,7 +1797,7 @@ def generate_formulas(numeric_vars, categorical_vars, target):
     for r in range(2, len(categorical_vars + numeric_vars) + 1):
         for combo in itertools.combinations(categorical_vars + numeric_vars, r):
             terms = wrap_categorical(combo)
-            formulas.append(f'{target} ~ {' * '.join(terms)}')
+            formulas.append(f'{target} ~ {" * ".join(terms)}')
 
     # 3. polynomial terms (quadratic, cubic, quartic) for numeric variables
     for var in numeric_vars:
@@ -1825,7 +1825,7 @@ def generate_formulas(numeric_vars, categorical_vars, target):
             if numeric_in_combo:  # If numeric variables are present, include polynomial terms
                 for num_var in numeric_in_combo:
                     terms = wrap_categorical(combo)
-                    formulas.append(f'{target} ~ {' * '.join(terms)} + I({num_var}**2) + I({num_var}**3) + I({num_var}**4)')
+                    formulas.append(f'{target} ~ {" * ".join(terms)} + I({num_var}**2) + I({num_var}**3) + I({num_var}**4)')
 
     # return the forumlas list
     return formulas
