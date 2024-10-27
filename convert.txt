@@ -1,1 +1,0 @@
-jupyter nbconvert --to markdown Chicago_Influenza_Binary_Classification.ipynb --NbConvertApp.output_base=README --embed-images
